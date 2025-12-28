@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.dark body {
+  @apply bg-gray-950 text-white transition
+}
+
+
+.light body {
+  @apply bg-white text-gray-900 transition;
+}

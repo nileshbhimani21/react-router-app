@@ -1,6 +1,6 @@
 # Welcome to React Router!
 
-Node 20.17.0
+Node 20.19.0
 
 ### Installation
 

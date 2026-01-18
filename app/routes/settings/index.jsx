@@ -1,12 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  incrementAsync,
-  selectCount,
-} from './counterSlice'
+import { decrement, increment, incrementByAmount } from '../../context/counterSlice';
+
 import styles from './index.module.css'
 
 export function meta() {
@@ -16,11 +11,11 @@ export function meta() {
   ];
 }
 
-export default function Home() {
-  const count = useSelector(selectCount);
+export default function Settings() {
+  const {count} = useSelector((state) => state.counter);
   const dispatch = useDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
-
+  
   return <div>
     <div className={styles.row}>
       <button
@@ -53,13 +48,7 @@ export default function Home() {
         }
       >
         Add Amount
-      </button>
-      <button
-        className={styles.asyncButton}
-        onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))}
-      >
-        Add Async
-      </button>
+      </button>     
     </div>
   </div>;
 }

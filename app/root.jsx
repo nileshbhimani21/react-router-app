@@ -6,8 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-import RootLayout from "./layouts";
 import "./app.css";
+import RootLayout from "./layout.jsx";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },

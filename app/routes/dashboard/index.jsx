@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import DataTable from "../../components/DataTable";
 import axios from "axios";
 import SortArrow from "../../utils/SortArrow";
+import Loader from "../../components/Loader";
 
 export function meta() {
   return [
@@ -12,6 +13,7 @@ export function meta() {
 
 export default function Dashboard() {
   const [list, setList] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
   const [filter, setFilter] = useState({
     limit: 10,
     page: 1,
@@ -69,14 +71,21 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
+    setIsLoading(true)
     const url = new URL('https://696ccd65f4a79b31517fd397.mockapi.io/api/users');
     url.searchParams.append('page', filter.page);
     url.searchParams.append('limit', filter.limit);
     url.searchParams.append('order', filter.order);
     url.searchParams.append('orderby', filter.orderby);
-    axios.get(url).then(res => { setList(res) })
+    axios.get(url).then(async res => { 
+      setList(res)
+      setIsLoading(false)
+     })
   }, [filter])
 
+  if(isLoading){
+    return <Loader size="lg" />
+  }
   return <div>
     <DataTable
       cols={column()}

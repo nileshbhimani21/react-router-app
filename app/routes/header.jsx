@@ -1,10 +1,9 @@
-import { Link, useNavigate } from 'react-router';
+import {  useNavigate } from 'react-router';
 import { useTheme } from '../context/ThemeContext';
 import { logout } from '../context/authSlice';
 import { useDispatch } from 'react-redux';
-import Switch from '../components/Switch';
 import { DarkIcon, LightIcon, MenuIcon, UserIcon } from '../components/Icons';
-import DropdownMenu from '../components/DropDown';
+import DropdownMenu from '../components/Dropdown';
 
 export default function Header({ collapsed, setCollapsed }) {
   const dispatch = useDispatch();

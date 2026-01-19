@@ -47,12 +47,12 @@ export default function Login() {
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='mb-3'>
-            <Input name="email" placeholder="email" register={register} validation={{ required: true, pattern: emailRegex }} />
+            <Input placeholder="email" {...register("email", { required: true, pattern: emailRegex })} />
             {errors.email && errors.email.type === "required" && <div className="text-sm text-red-500">Email is required</div>}
             {errors.email && errors.email.type === "pattern" && <div className="text-sm text-red-500">Email is not valid</div>}
           </div>
           <div className='mb-3'>
-            <Input type="password" name="password" placeholder="Password" register={register} validation={{ required: true }} />
+            <Input type="password"  placeholder="Password"  {...register("password", { required: true})} />
             {errors.password && errors.password.type === "required" && <div className="text-sm text-red-500">Password is required</div>}
           </div>
           <button className="btn btn-primary" type="submit">

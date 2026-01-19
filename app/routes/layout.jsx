@@ -1,5 +1,5 @@
 import { Outlet, redirect } from "react-router";
-import Sidebar from "./Sidebar";
+import Sidebar from "./sidebar";
 import Header from "./header";
 import { useState } from "react";
 
